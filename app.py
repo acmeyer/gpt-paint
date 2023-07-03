@@ -28,7 +28,7 @@ def get_chat_completion(
     system_message = [{"role": "system", "content": system_prompt}]
     conversation_messages = system_message + messages
     response = openai.ChatCompletion.create(
-        model=model, messages=conversation_messages, temperature=0.7, stream=True
+        model=model, messages=conversation_messages, temperature=0.9, stream=True
     )
     return response
 
@@ -48,7 +48,7 @@ def paint():
         prompt = f.read()
     user_message = {
         "role": "user",
-        "content": f"Please create HTML of a webpage of your choosing. It should be interesting, entertaining, funny, and exciting. Your number one goal is to entertain me, create whatever webpage content you can to accomplish this goal.",
+        "content": f"Please create an interesting webpage of your choosing. Be as creative as possible when coming up with your webpage.",
     }
 
     cache_key = make_cache_key()
